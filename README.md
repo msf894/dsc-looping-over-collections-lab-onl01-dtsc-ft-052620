@@ -65,9 +65,8 @@ buenos_aires
 
 ```python
 # here we want to find just the area of buenos_aires
-buenos_aires_area = None
 # code goes here
-
+buenos_aires_area = cities[0]['Area']
 buenos_aires_area
 ```
 
@@ -77,7 +76,7 @@ Our `cities` list contains information about the top 12 cities.  For our upcomin
 
 
 ```python
-city_indices = None
+city_indices = list(range(0,len(cities)))
 city_indices # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 ```
 
@@ -86,7 +85,8 @@ Now, using the `cities` list, we want to create a list of the names for each cit
 
 ```python
 city_names = []
-
+for city in cities:
+    city_names.append(city['City'])
 city_names
 ```
 
@@ -97,7 +97,8 @@ Use a `for` loop and the lists `city_indices` and `city_names` to accomplish thi
 
 ```python
 names_and_ranks = []
-
+for x in city_indices:
+    names_and_ranks.append(f"{x + 1}. {city_names[x]}")
 names_and_ranks
 # write a for loop that adds the properly formatted string to the names_and_ranks list
 ```
@@ -145,6 +146,9 @@ Now we want declare a variable called `city_areas` that points to a list of all 
 ```python
 city_areas = []
 #write a for loop that adds the 'Area' of each city to the list city_areas
+for city in cities:
+    city_areas.append(city['Area'])
+city_areas    
 ```
 
 Now that we have the city areas and populations, let's plot them to see how the size of each city compares to its population. 
